@@ -230,10 +230,31 @@ fun cal(e : Shape){
 }
 fun me(x : Int) = x > 4
 
+class Container<T> (var data : T){
+    fun setValue(value : T){
+        data = value
+    }
+    fun getValue() : T{
+        return data
+    }
+
+}
+
+class Generic<T> (var data : T){
+    fun setValue(value : T){
+        data = value
+    }
+    fun getValue() : T{
+        return data
+    }
+}
 fun main(args: Array<String>) {
-    val arrayList : ArrayList<Int> = arrayListOf(2,8,9,7,5,4,3,2,1,2,23,3,2,21,2,231,)
+    val generic = Generic<Int> (4)
+    generic.setValue(100)
+    println(generic.getValue())
+    /*val arrayList : ArrayList<Int> = arrayListOf(2,8,9,7,5,4,3,2,1,2,23,3,2,21,2,231,)
     for (elemt in arrayList)
-        println(me(elemt))
+        println(me(elemt))*/
 
 
     /*val a = Shape.Rectange(3)
@@ -320,6 +341,7 @@ fun main(args: Array<String>) {
     seal1.fun1()*/
 
 }
+
 
 
 sealed class Seal{
