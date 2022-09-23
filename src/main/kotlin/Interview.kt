@@ -202,12 +202,49 @@ interface Basket{
 data class DataClas(val id: Int, val name: String, val email: String){
 
 }
+sealed class Data{
+    class success : Data(){
+        fun isSucc (){
+            println("success")
+        }
+    }
+    class failure : Data(){
+        fun isFailure(){
+            println("failure")
+        }
+    }
+}
+
+sealed class Shape{
+    class Circle(var radius: Int) : Shape()
+    class Rectange(var side: Int) : Shape()
+    class Triange(var code: Int) : Shape()
+}
+
+fun cal(e : Shape){
+    when (e){
+        is Shape.Circle -> println(3 * e.radius * e.radius)
+        is Shape.Rectange -> println(8 * e.side * e.side)
+        is Shape.Triange -> println(9 * e.code)
+    }
+}
+fun me(x : Int) = x > 4
 
 fun main(args: Array<String>) {
+    val arrayList : ArrayList<Int> = arrayListOf(2,8,9,7,5,4,3,2,1,2,23,3,2,21,2,231,)
+    for (elemt in arrayList)
+        println(me(elemt))
 
-    val a1 = Cat()
-    a1.method()
-    a1.basketPlay()
+
+    /*val a = Shape.Rectange(3)
+    val b = Shape.Rectange(2)
+    val c = Shape.Triange(4)
+    cal(a)
+    cal(b)
+    cal(c)*/
+
+    /*val a = DataClas(82,"Gaddar", "gaddarkumar7447@gmail.com")
+    println(a)*/
 
     /*val child = Child("Gaddar", 13)
     val child1 = Child("Gaddar", 13, "gaddarkumar7447@gmail.com")*/
